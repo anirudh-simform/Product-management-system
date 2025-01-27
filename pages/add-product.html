@@ -1,0 +1,40 @@
+
+<h1 class="product-management-system-title">
+    Product Management System
+  </h1>
+  <button class="add-product">Add Product</button>
+  <div class="search-container">
+    <input type="text" class="search-input" />
+    <button class="search-button">Search</button>
+  </div>
+  <div class="sort-container">
+    <div class="select-container">
+      <label for="choose-parameter">Choose a parameter</label>
+      <select name="choose-parameter" id="choose-parameter">
+        <option value="placeholder">Choose a parameter</option>
+        <option value="product-id">Sort by Product Id</option>
+        <option value="product-name">Sort by Product Name</option>
+        <option value="product-price">Sort by Price</option>
+      </select>
+      <button class="sort">Sort</button>
+    </div>
+  </div>
+  <div class="product-list-container"></div>
+  <dialog>
+    <form action="">
+      <label for="product-name">Product Name</label>
+      <input type="text" id="product-name" name="product-name" />
+      <label for="product-image">Product Image</label>
+      <input type="text" id="product-image" name="product-image" />
+      <label for="product-price">Product Price</label>
+      <input type="text" id="product-price" name="product-price" />
+      <label for="product-description">Product Description</label>
+      <input
+        type="text"
+        id="product-description"
+        name="product-description"
+      />
+      <button class="add">Add Product</button>
+    </form>
+  </dialog>
+</div>
