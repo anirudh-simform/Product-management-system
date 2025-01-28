@@ -4,7 +4,7 @@ async function router() {
   let path;
   document.addEventListener("click", async (e) => {
     const { target } = e;
-    if (!target.matches("div a")) {
+    if (!target.matches("div a") || !target.matches(".product-container>a")) {
       return;
     }
     e.preventDefault();
@@ -14,7 +14,7 @@ async function router() {
     if (path.title == "Home") {
       addEventListeners();
     } else if (path.title == "Edit") {
-      addEditEventListeners();
+      addEditEventListeners(target.id);
     }
   });
 

@@ -24,6 +24,9 @@ function saveButtonEventListeners() {
         productDescription
       );
 
+      // Updating local history
+      localStorage.setItem("products", productSystem.getJSONArray());
+
       alert("entry changed");
     });
   });

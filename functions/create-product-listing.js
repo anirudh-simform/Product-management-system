@@ -1,4 +1,5 @@
 function createProductListing(
+  productId,
   productName,
   productPrice,
   productImage,
@@ -50,11 +51,17 @@ function createProductListing(
     productDescriptionNode
   );
 
+  const editLink = document.createElement("a");
+  editLink.href = "/edit";
+  editLink.text = "Edit";
+  editLink.id = `id${productId}`;
+
   productContainer.append(
     productNameContainer,
     productImageContainer,
     productPriceContainer,
-    productDescriptionContainer
+    productDescriptionContainer,
+    editLink
   );
   return productContainer;
 }

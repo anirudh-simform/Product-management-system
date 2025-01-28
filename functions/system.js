@@ -32,7 +32,7 @@ class System {
       productObject["productDescription"] = product.getDescription();
       JSONArray.push(productObject);
     });
-    return JSONArray;
+    return JSON.stringify(JSONArray);
   }
 
   editProduct(

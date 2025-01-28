@@ -31,6 +31,7 @@ function addSortEventListener() {
     sortedArray.forEach((product) => {
       addProductListing(
         createProductListing(
+          product.getProductId(),
           product.getProductName(),
           product.getPrice(),
           product.getImage(),
