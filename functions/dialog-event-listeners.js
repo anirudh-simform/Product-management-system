@@ -3,6 +3,7 @@ import { productSystem } from "../index.js";
 import { addProductListing } from "./addProductListing.js";
 import { createProductListing } from "./create-product-listing.js";
 import { displayProducts } from "./display-products.js";
+
 function dialogEventListeners() {
   const form = document.querySelector("dialog>form");
   const add = document.querySelector("form>.add");
@@ -11,7 +12,7 @@ function dialogEventListeners() {
     ".product-list-container"
   );
 
-  add.addEventListener("click", (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const product = new Product(
