@@ -23,9 +23,9 @@ function createProductListing(
   const productImageLabel = document.createElement("div");
   productImageLabel.className = "product-image-label";
   productImageLabel.textContent = "Product Image";
-  const productImageNode = document.createElement("div");
+  const productImageNode = document.createElement("img");
   productImageNode.className = "product-image";
-  productImageNode.textContent = productImage;
+  productImageNode.src = productImage;
   productImageContainer.append(productImageLabel, productImageNode);
 
   const productPriceContainer = document.createElement("div");

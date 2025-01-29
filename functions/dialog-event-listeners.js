@@ -12,21 +12,25 @@ function dialogEventListeners() {
     ".product-list-container"
   );
 
+  let imageDataURL;
+
+  form["product-image"].addEventListener("change", () => {
+    const reader = new FileReader();
+    const file = form["product-image"].files[0];
+
+    reader.addEventListener("load", () => {
+      imageDataURL = reader.result;
+    });
+    reader.readAsDataURL(file);
+  });
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const product = new Product(
       form["product-name"].value,
-      form["product-image"].value,
+      imageDataURL,
       form["product-price"].value,
-      form["product-description"].value
-    );
-
-    const productListingNode = createProductListing(
-      product.getProductId(),
-      form["product-name"].value,
-      form["product-price"].value,
-      form["product-image"].value,
       form["product-description"].value
     );
 
@@ -52,4 +56,16 @@ function addButtonEventListener() {
   });
 }
 
-export { dialogEventListeners, addButtonEventListener };
+function closeButtonEventListeners() {
+  const dialog = document.querySelector("dialog");
+  const closeButton = document.querySelector(".close");
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+  });
+}
+
+export {
+  dialogEventListeners,
+  addButtonEventListener,
+  closeButtonEventListeners,
+};

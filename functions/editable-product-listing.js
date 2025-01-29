@@ -41,14 +41,38 @@ function editableProductListing(
     "editable-label"
   );
   productImageLabel.textContent = "Product Image";
-  const productImageNode = document.createElement("input");
+  const productImageNode = document.createElement("img");
   productImageNode.classList.add(
     "editable-product-image",
     "editable-property",
     `id${productId}`
   );
-  productImageNode.value = productImage;
+  productImageNode.src = productImage;
   productImageContainer.append(productImageLabel, productImageNode);
+
+  // Product Image change
+  const productImageChangeContainer = document.createElement("div");
+  productImageChangeContainer.classList.add(
+    "editable-product-image-change-container",
+    "editable-property-container"
+  );
+  const productImageChangeLabel = document.createElement("div");
+  productImageChangeLabel.classList.add(
+    "editable-product-image-change-label",
+    "editable-label"
+  );
+  productImageChangeLabel.textContent = "Product Image";
+  const productImageChangeNode = document.createElement("input");
+  productImageChangeNode.classList.add(
+    "editable-product-image-change",
+    "editable-property",
+    `id${productId}`
+  );
+  productImageChangeNode.type = "file";
+  productImageChangeContainer.append(
+    productImageChangeLabel,
+    productImageChangeNode
+  );
 
   // Product Price
   const productPriceContainer = document.createElement("div");
@@ -105,6 +129,7 @@ function editableProductListing(
   editableProductContainer.append(
     productNameContainer,
     productImageContainer,
+    productImageChangeContainer,
     productPriceContainer,
     productDescriptionContainer,
     saveButton

@@ -4,7 +4,7 @@ async function router() {
   let path;
   document.addEventListener("click", async (e) => {
     const { target } = e;
-    if (!target.matches("div a") || !target.matches(".product-container>a")) {
+    if (!(target.matches("nav a") || target.matches(".product-container>a"))) {
       return;
     }
     e.preventDefault();

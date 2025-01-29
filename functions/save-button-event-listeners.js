@@ -8,7 +8,7 @@ function saveButtonEventListeners() {
       ).value;
       const productImage = document.querySelector(
         ".editable-product-image" + ".id" + saveButton.id
-      ).value;
+      ).src;
       const productPrice = document.querySelector(
         ".editable-product-price" + ".id" + saveButton.id
       ).value;
