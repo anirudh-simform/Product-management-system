@@ -1,6 +1,6 @@
 import { productSystem } from "../index.js";
 import { createProductListing } from "./create-product-listing.js";
-import { addProductListing } from "./addProductListing.js";
+import { addProductListing } from "./add-product-listing.js";
 function addSortEventListener() {
   const sortButton = document.querySelector(".sort");
   const chosenParameter = document.querySelector("#choose-parameter");

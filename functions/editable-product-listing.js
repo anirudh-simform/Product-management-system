@@ -137,4 +137,71 @@ function editableProductListing(
   return editableProductContainer;
 }
 
+function editProductForm(
+  productId,
+  productName,
+  productPrice,
+  productImage,
+  productDescription
+) {
+  // Form element
+  const editForm = document.createElement("form");
+  editForm.className = "edit-form";
+
+  // Product name section
+  const productNameLabel = document.createElement("label");
+  productNameLabel.setAttribute("for", "edit-product-name");
+  productNameLabel.textContent = "Product Name";
+
+  const productNameNode = document.createElement("input");
+  productNameNode.name = "edit-product-name";
+  productNameNode.id = "edit-product-name";
+  productNameNode.value = productName;
+
+  // append nodes to form
+  editForm.append(productNameLabel, productNameNode);
+
+  // Product image section
+  const productImageLabel = document.createElement("label");
+  productImageLabel.setAttribute("for", "edit-product-image");
+  productImageLabel.textContent = "Product Image";
+
+  const productImageNode = document.createElement("input");
+  productImageNode.type = "file";
+  productImageNode.name = "edit-product-image";
+  productImageNode.id = "edit-product-image";
+  productImageNode.src = productImage;
+
+  // append nodes to form
+  editForm.append(productImageLabel, productImageNode);
+
+  // Product price section
+  const productPriceLabel = document.createElement("label");
+  productPriceLabel.setAttribute("for", "edit-product-price");
+  productPriceLabel.textContent = "Product Price";
+
+  const productPriceNode = document.createElement("input");
+  productPriceNode.name = "edit-product-price";
+  productPriceNode.id = "edit-product-price";
+  productPriceNode.type = "number";
+  productPriceNode.value = productPrice;
+
+  // append nodes to form
+  editForm.append(productPriceLabel, productPriceNode);
+
+  // Product description section
+  const productDescriptionLabel = document.createElement("label");
+  productDescriptionLabel.setAttribute("for", "edit-product-description");
+  productDescriptionLabel.textContent = "Product Description";
+
+  const productDescriptionNode = document.createElement("input");
+  productDescriptionNode.name = "edit-product-description";
+  productDescriptionNode.id = "edit-product-description";
+  productPriceNode.type = "number";
+  productPriceNode.value = productPrice;
+
+  // append nodes to form
+  editForm.append(productPriceLabel, productPriceNode);
+}
+
 export { editableProductListing };

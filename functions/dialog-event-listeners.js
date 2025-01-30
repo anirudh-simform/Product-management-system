@@ -1,10 +1,8 @@
 import { Product } from "./product.js";
 import { productSystem } from "../index.js";
-import { addProductListing } from "./addProductListing.js";
-import { createProductListing } from "./create-product-listing.js";
 import { displayProducts } from "./display-products.js";
 
-function dialogEventListeners() {
+function addDialogEventListeners() {
   const form = document.querySelector("dialog>form");
   const add = document.querySelector("form>.add");
   const dialog = document.querySelector("dialog");
@@ -12,11 +10,24 @@ function dialogEventListeners() {
     ".product-list-container"
   );
 
+  // 5MB constant
+  const maxFileSize = 5000000;
+
   let imageDataURL;
 
+  // Getting image and converting it to dataURL
   form["product-image"].addEventListener("change", () => {
     const reader = new FileReader();
     const file = form["product-image"].files[0];
+
+    // Validating image size
+    if (file.size > maxFileSize) {
+      form["product-image"].setCustomValidity(
+        "The uploaded file exceeds the maximum allowed capacity of 5MB. Please choose a smaller file"
+      );
+    } else {
+      form["product-image"].setCustomValidity("");
+    }
 
     reader.addEventListener("load", () => {
       imageDataURL = reader.result;
@@ -56,7 +67,7 @@ function addButtonEventListener() {
   });
 }
 
-function closeButtonEventListeners() {
+function addCloseButtonEventListeners() {
   const dialog = document.querySelector("dialog");
   const closeButton = document.querySelector(".close");
   closeButton.addEventListener("click", () => {
@@ -65,7 +76,7 @@ function closeButtonEventListeners() {
 }
 
 export {
-  dialogEventListeners,
+  addDialogEventListeners,
   addButtonEventListener,
-  closeButtonEventListeners,
+  addCloseButtonEventListeners,
 };

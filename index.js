@@ -1,5 +1,5 @@
 import { System } from "./functions/system.js";
-import { addEventListeners } from "./functions/addEventListeners.js";
+import { addEventListeners } from "./functions/add-event-listeners.js";
 import { router } from "./functions/router.js";
 import { Product } from "./functions/product.js";
 

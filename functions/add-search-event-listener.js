@@ -1,5 +1,5 @@
 import { createProductListing } from "./create-product-listing.js";
-import { addProductListing } from "./addProductListing.js";
+import { addProductListing } from "./add-product-listing.js";
 import { productSystem } from "../index.js";
 function addSearchEventListener() {
   const searchInput = document.querySelector(".search-input");

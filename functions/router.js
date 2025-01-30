@@ -1,5 +1,7 @@
 import { addEditEventListeners } from "./add-edit-event-listeners.js";
-import { addEventListeners } from "./addEventListeners.js";
+import { addEventListeners } from "./add-event-listeners.js";
+import { addEditProductEventListeners } from "./edit-product-form-event-listeners.js";
+import { fillEditForm } from "./fill-edit-form.js";
 async function router() {
   let path;
   document.addEventListener("click", async (e) => {
@@ -12,9 +14,14 @@ async function router() {
     path = await locationHandler();
 
     if (path.title == "Home") {
+      // Add the event listeners when navigating to the home page
       addEventListeners();
     } else if (path.title == "Edit") {
-      addEditEventListeners(target.id);
+      // Add the event listeners when navigating to the edit page
+      const productId = target.id.charAt(target.id.length - 1);
+      addEditProductEventListeners(productId);
+      // Fill the edit form
+      fillEditForm(productId);
     }
   });
 
@@ -41,6 +48,7 @@ async function router() {
   const locationHandler = async () => {
     const location = window.location.pathname;
 
+    // If location is empty redirect to the home page
     if (location.length == 0) {
       location = "/";
     }
