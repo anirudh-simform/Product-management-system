@@ -9,6 +9,7 @@ function addEditProductEventListeners(productId) {
 
     const maxFileSize = 5000000;
 
+    // If selected file is greater than allowed capacity return with an error message
     if (file.size > maxFileSize) {
       editForm["product-image-change-button"].setCustomValidity(
         "The uploaded file exceeds the maximum allowed capacity of 5MB. Please choose a smaller file"
@@ -22,6 +23,7 @@ function addEditProductEventListeners(productId) {
       currentProductImage.src = reader.result;
     });
 
+    // Read the file as dataURL
     reader.readAsDataURL(file);
   });
 

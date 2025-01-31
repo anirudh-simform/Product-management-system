@@ -7,6 +7,7 @@ function addRemoveProductEventListener() {
 
   removeButtons.forEach((removeButton) => {
     removeButton.addEventListener("click", () => {
+      // Extract the productId of the product that invoked the remove method
       const productId = removeButton.id.charAt(removeButton.id.length - 1);
 
       productSystem.removeProduct(productId);

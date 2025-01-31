@@ -25,13 +25,10 @@ function createProductListing(
   // Product image container
   const productImageContainer = document.createElement("div");
   productImageContainer.className = "product-image-container";
-  const productImageLabel = document.createElement("div");
-  productImageLabel.className = "product-image-label";
-  productImageLabel.textContent = "Product Image";
   const productImageNode = document.createElement("img");
   productImageNode.className = "product-image";
   productImageNode.src = productImage;
-  productImageContainer.append(productImageLabel, productImageNode);
+  productImageContainer.append(productImageNode);
 
   // Product price container
   const productPriceContainer = document.createElement("div");
@@ -44,7 +41,7 @@ function createProductListing(
   productPriceNode.textContent = productPrice;
   productPriceContainer.append(productPriceLabel, productPriceNode);
 
-  // Product price container
+  // Product description container
   const productDescriptionContainer = document.createElement("div");
   productDescriptionContainer.className = "product-description-container";
   const productDescriptionLabel = document.createElement("div");
@@ -70,6 +67,7 @@ function createProductListing(
   removeProductButton.className = "remove-product-button";
   removeProductButton.textContent = "Remove Product";
   removeProductButton.id = `id${productId}`;
+  // Since each removeButton is unique adding event listener at its creation is the easiest
   removeProductButton.addEventListener("click", () => {
     productSystem.removeProduct(productId);
 
@@ -81,14 +79,18 @@ function createProductListing(
     displayProducts();
   });
 
-  productContainer.append(
+  const textElementContainer = document.createElement("div");
+  textElementContainer.className = "text-element-container";
+
+  textElementContainer.append(
     productNameContainer,
-    productImageContainer,
     productPriceContainer,
     productDescriptionContainer,
     editLink,
     removeProductButton
   );
+
+  productContainer.append(productImageContainer, textElementContainer);
   return productContainer;
 }
 

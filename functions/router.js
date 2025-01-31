@@ -1,28 +1,23 @@
-import { addEditEventListeners } from "./add-edit-event-listeners.js";
 import { addEventListeners } from "./add-event-listeners.js";
 import { addEditProductEventListeners } from "./edit-product-form-event-listeners.js";
 import { fillEditForm } from "./fill-edit-form.js";
+let clickedButton;
 async function router() {
   let path;
   document.addEventListener("click", async (e) => {
     const { target } = e;
-    if (!(target.matches("nav a") || target.matches(".product-container>a"))) {
+    clickedButton = target;
+    if (
+      !(
+        target.matches("nav a") ||
+        target.matches(".product-container>.text-element-container>a")
+      )
+    ) {
       return;
     }
     e.preventDefault();
     route();
     path = await locationHandler();
-
-    if (path.title == "Home") {
-      // Add the event listeners when navigating to the home page
-      addEventListeners();
-    } else if (path.title == "Edit") {
-      // Add the event listeners when navigating to the edit page
-      const productId = target.id.charAt(target.id.length - 1);
-      addEditProductEventListeners(productId);
-      // Fill the edit form
-      fillEditForm(productId);
-    }
   });
 
   const routes = {
@@ -60,16 +55,22 @@ async function router() {
     document.querySelector(".content").innerHTML = html;
 
     document.title = route.title;
+    if (route.title == "Home") {
+      // Add the event listeners when navigating to the home page
+      addEventListeners();
+    } else if (route.title == "Edit") {
+      // Add the event listeners when navigating to the edit page
+      const productId = clickedButton.id.charAt(clickedButton.id.length - 1);
+      addEditProductEventListeners(productId);
+      // Fill the edit form
+      fillEditForm(productId);
+    }
     return route;
   };
 
   window.onpopstate = locationHandler;
   window.route = route;
   path = await locationHandler();
-
-  if (path.title == "Home") {
-    addEventListeners();
-  }
 }
 
 export { router };

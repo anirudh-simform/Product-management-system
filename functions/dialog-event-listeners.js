@@ -20,6 +20,11 @@ function addDialogEventListeners() {
     const reader = new FileReader();
     const file = form["product-image"].files[0];
 
+    // If the user closes the choose file dialog without choosing a file return
+    if (!file) {
+      return;
+    }
+
     // Validating image size
     if (file.size > maxFileSize) {
       form["product-image"].setCustomValidity(
