@@ -1,6 +1,7 @@
 import { Product } from "./product.js";
 import { productSystem } from "../index.js";
 import { displayProducts } from "./display-products.js";
+import { removeAllElements } from "./remove-all-elements.js";
 
 function addDialogEventListeners() {
   const form = document.querySelector("dialog>form");
@@ -52,7 +53,7 @@ function addDialogEventListeners() {
     productSystem.addProduct(product);
 
     // Clear the product list container before displaying product
-    productListingContainer.innerHTML = "";
+    removeAllElements(productListingContainer);
 
     displayProducts();
 

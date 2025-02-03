@@ -1,6 +1,7 @@
 import { createProductListing } from "./create-product-listing.js";
 import { addProductListing } from "./add-product-listing.js";
 import { productSystem } from "../index.js";
+import { removeAllElements } from "./remove-all-elements.js";
 function addSearchEventListener() {
   const searchInput = document.querySelector(".search-input");
   const searchButton = document.querySelector(".search-button");
@@ -19,7 +20,7 @@ function addSearchEventListener() {
     const productListContainer = document.querySelector(
       ".product-list-container"
     );
-    productListContainer.innerHTML = "";
+    removeAllElements(productListContainer);
     filteredResults.forEach((product) => {
       addProductListing(
         createProductListing(

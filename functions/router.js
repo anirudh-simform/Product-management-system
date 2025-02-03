@@ -1,6 +1,7 @@
 import { addEventListeners } from "./add-event-listeners.js";
 import { addEditProductEventListeners } from "./edit-product-form-event-listeners.js";
 import { fillEditForm } from "./fill-edit-form.js";
+import { removeAllElements } from "./remove-all-elements.js";
 let clickedButton;
 async function router() {
   let path;

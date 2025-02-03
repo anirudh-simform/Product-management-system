@@ -1,6 +1,7 @@
 import { productSystem } from "../index.js";
 import { createProductListing } from "./create-product-listing.js";
 import { addProductListing } from "./add-product-listing.js";
+import { removeAllElements } from "./remove-all-elements.js";
 function addSortEventListener() {
   const sortButton = document.querySelector(".sort");
   const chosenParameter = document.querySelector("#choose-parameter");
@@ -32,7 +33,7 @@ function addSortEventListener() {
       return;
     }
 
-    productListContainer.innerHTML = "";
+    removeAllElements(productListContainer);
 
     sortedArray.forEach((product) => {
       addProductListing(

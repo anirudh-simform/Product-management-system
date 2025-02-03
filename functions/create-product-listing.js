@@ -1,5 +1,6 @@
 import { productSystem } from "../index.js";
 import { displayProducts } from "./display-products.js";
+import { removeAllElements } from "./remove-all-elements.js";
 function createProductListing(
   productId,
   productName,
@@ -75,7 +76,7 @@ function createProductListing(
     const productListContainer = document.querySelector(
       ".product-list-container"
     );
-    productListContainer.innerHTML = "";
+    removeAllElements(productListContainer);
     displayProducts();
   });
 
