@@ -31,6 +31,10 @@ class Product {
     return this.#productId;
   }
 
+  setProductId(productId) {
+    this.#productId = productId;
+  }
+
   incrementProductId() {
     Product.#counter = Product.#counter + 1;
     return Product.#counter;
