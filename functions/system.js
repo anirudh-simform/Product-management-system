@@ -49,6 +49,19 @@ class System {
     this.#productsArray[index].setDescription(productDescription);
   }
 
+  removeProduct(productId) {
+    let index;
+
+    for (let i = 0; i < this.#productsArray.length; i++) {
+      if (this.#productsArray[i].getProductId() == productId) {
+        index = i;
+        break;
+      }
+    }
+
+    this.#productsArray.splice(index, 1);
+  }
+
   filterByProductId(productId) {
     const filteredArray = this.#productsArray.filter(
       (product) => product.getProductId() == productId

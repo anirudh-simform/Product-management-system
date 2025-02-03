@@ -1,6 +1,6 @@
 import { productSystem } from "../index.js";
 import { createProductListing } from "./create-product-listing.js";
-import { addProductListing } from "./addProductListing.js";
+import { addProductListing } from "./add-product-listing.js";
 function addSortEventListener() {
   const sortButton = document.querySelector(".sort");
   const chosenParameter = document.querySelector("#choose-parameter");
@@ -24,6 +24,12 @@ function addSortEventListener() {
         break;
       default:
         return;
+    }
+
+    // Alert user if trying to sort empty system
+    if (sortedArray.length == 0) {
+      alert("Cannot sort without products");
+      return;
     }
 
     productListContainer.innerHTML = "";

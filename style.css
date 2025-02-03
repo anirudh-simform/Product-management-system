@@ -1,18 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   box-sizing: border-box;
   margin: none;
+  font-family: "Poppins";
 }
-
+body {
+  height: 100vh;
+  margin: 0px;
+}
 .page-container {
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+nav > a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: burlywood;
+  border-radius: 5px;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: max-content;
+}
+
+dialog {
+  width: 80%;
+  border: none;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border-radius: 10px;
+}
+
+button {
+  width: max-content;
+  padding: 0.2rem 1rem;
+  border-radius: 5px;
+  background-color: burlywood;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+dialog > form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+dialog > form > input,
+dialog > form > input > textarea {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: solid 2px black;
+  font-size: large;
+}
+
+dialog > form > label {
+  font-weight: bold;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  width: 80%;
+}
+
+.search-container {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
 }
 
 .sort-container {
@@ -20,20 +86,84 @@
   gap: 2rem;
 }
 
+.search-input {
+  flex-grow: 1;
+}
+
+.search-and-sort-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .product-list-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 }
 
-/* Selecting the product containers */
+.add-product {
+  align-self: flex-start;
+}
 
 .product-list-container > .product-container {
   display: grid;
-  grid-template-columns: repeat(2, 12rem);
-  gap: 0.5rem;
-  border-bottom: solid 1px gray;
-  padding-bottom: 0.4rem;
+  grid-template-columns: 45% 55%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product-container > .product-image-container,
+.editable-product-list-container > .image-container {
+  place-self: center;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  border: solid 2px black;
+  border-radius: 10px;
+}
+
+.text-element-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.4rem;
+}
+
+.products-title {
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+
+.text-element-container > div[class$="container"] > div:last-child {
+  border: solid 2px black;
+  border-radius: 4px;
+  background-color: bisque;
+  padding: 0.2rem;
+  margin-top: 0.4rem;
+}
+
+.product-description {
+  text-wrap: wrap;
+}
+/* Select all product label nodes */
+.text-element-container > div[class$="container"] > div[class$="label"] {
+  font-weight: bold;
+}
+
+.edit-link {
+  text-decoration: none;
+  background-color: burlywood;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  color: black;
+  width: max-content;
+  font-weight: bold;
 }
 
 /* Selecting the data fields */
@@ -42,4 +172,36 @@
   border: 1px solid black;
   border-radius: 5px;
   padding: 0.5rem 0.1rem;
+}
+
+.editable-product-list-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.editable-product-list-container > .edit-product-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1.2rem;
+}
+
+/* Selecting the labels */
+.editable-product-list-container > .edit-product-form > label {
+  font-weight: bold;
+  font-size: large;
+}
+
+/* Selecting the inputs */
+
+.editable-product-list-container > .edit-product-form > input,
+textarea {
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: solid 2px black;
+  font-size: large;
 }
