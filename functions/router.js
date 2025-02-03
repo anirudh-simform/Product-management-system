@@ -41,7 +41,8 @@ async function router() {
   };
 
   const locationHandler = async () => {
-    const location = window.location.pathname;
+    let location = window.location.pathname.split("/");
+    location = "/" + location[location.length - 1];
 
     // If location is empty redirect to the home page
     if (location.length == 0) {
