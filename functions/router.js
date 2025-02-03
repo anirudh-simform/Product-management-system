@@ -42,6 +42,7 @@ async function router() {
   };
 
   const locationHandler = async () => {
+    // Split to get the last path
     let location = window.location.pathname.split("/");
     location = "/" + location[location.length - 1];
 

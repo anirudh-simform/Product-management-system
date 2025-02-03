@@ -1,3 +1,4 @@
+import { Product } from "./product.js";
 class System {
   #productsArray;
 
@@ -67,6 +68,8 @@ class System {
     for (let i = 0; i < this.#productsArray.length; i++) {
       this.#productsArray[i].setProductId(i + 1);
     }
+
+    Product.setCounter(this.#productsArray.length);
   }
 
   filterByProductId(productId) {
