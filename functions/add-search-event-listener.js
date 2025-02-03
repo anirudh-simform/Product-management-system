@@ -8,6 +8,14 @@ function addSearchEventListener() {
   searchButton.addEventListener("click", () => {
     const searchValue = Number(searchInput.value);
     const filteredResults = productSystem.filterByProductId(searchValue);
+
+    // Alert user if searched result not found
+    if (filteredResults.length == 0) {
+      alert(
+        "Product not found,try searching for a different product or check the product ID"
+      );
+      return;
+    }
     const productListContainer = document.querySelector(
       ".product-list-container"
     );

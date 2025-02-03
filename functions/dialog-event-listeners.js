@@ -4,7 +4,6 @@ import { displayProducts } from "./display-products.js";
 
 function addDialogEventListeners() {
   const form = document.querySelector("dialog>form");
-  const add = document.querySelector("form>.add");
   const dialog = document.querySelector("dialog");
   const productListingContainer = document.querySelector(
     ".product-list-container"
@@ -66,8 +65,10 @@ function addDialogEventListeners() {
 
 function addButtonEventListener() {
   const addProduct = document.querySelector(".add-product");
+  const form = document.querySelector("dialog>form");
   const dialog = document.querySelector("dialog");
   addProduct.addEventListener("click", () => {
+    form.reset();
     dialog.showModal();
   });
 }

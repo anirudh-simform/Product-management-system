@@ -26,6 +26,12 @@ function addSortEventListener() {
         return;
     }
 
+    // Alert user if trying to sort empty system
+    if (sortedArray.length == 0) {
+      alert("Cannot sort without products");
+      return;
+    }
+
     productListContainer.innerHTML = "";
 
     sortedArray.forEach((product) => {
