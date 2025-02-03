@@ -60,6 +60,13 @@ class System {
     }
 
     this.#productsArray.splice(index, 1);
+    this.correctProductId();
+  }
+
+  correctProductId() {
+    for (let i = 0; i < this.#productsArray.length; i++) {
+      this.#productsArray[i].setProductId(i + 1);
+    }
   }
 
   filterByProductId(productId) {
